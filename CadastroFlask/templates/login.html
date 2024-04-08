@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="input-group">
+                <input type="text" name="email" placeholder="Email ou Nome de Usuário">
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Senha" autocomplete="current-password">
+            </div>
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+            <button type="submit" class="login-button">Logar</button>
+        </form>
+    </div>
+
+</body>
+</html>
